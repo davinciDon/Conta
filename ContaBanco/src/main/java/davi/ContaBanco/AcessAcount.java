@@ -11,6 +11,9 @@ public class AcessAcount {
         Open OPEN1 = new Open();
         OPEN1.OpenAcount();
         OPEN1.status();
+        OPEN1.buy();
+        OPEN1.buy();
+        OPEN1.status();
 
 
 
