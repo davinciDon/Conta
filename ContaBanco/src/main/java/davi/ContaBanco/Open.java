@@ -1,8 +1,9 @@
-package davi.ContaBanco;
+    package davi.ContaBanco;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -55,11 +56,19 @@ public class Open {
     }
 
     public void depositar() {
-        System.out.println("");
-        System.out.println("what amount do you want to deposit?");
-        setSaldoDepositado(scanner.nextDouble());
-        setSaldoSacado(0);
-        SaldoAtual();
+            System.out.println("");
+            System.out.println("What amount do you want to deposit?");
+
+            try {
+                setSaldoDepositado(scanner.nextDouble());
+                SaldoAtual();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next();
+                depositar();
+            }
+
+
 
     }
 
@@ -72,9 +81,14 @@ public class Open {
     public void saque() {
         System.out.println("");
         System.out.println("what amount do you want to withdraw?");
-        setSaldoSacado(scanner.nextDouble());
-        setSaldoDepositado(0);
-        SaldoAtual();
+        try {
+            setSaldoSacado(scanner.nextDouble());
+            SaldoAtual();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+            scanner.next();
+            saque();
+        }
     }
 
     public void status() {

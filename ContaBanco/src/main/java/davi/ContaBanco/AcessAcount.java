@@ -11,8 +11,7 @@ public class AcessAcount {
         Open OPEN1 = new Open();
         OPEN1.OpenAcount();
         OPEN1.status();
-        OPEN1.saque();
-        OPEN1.depositar();
+
 
 
     }
